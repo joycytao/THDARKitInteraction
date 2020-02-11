@@ -72,6 +72,10 @@ extension ViewController: VirtualObjectSelectionViewControllerDelegate {
         
         // If the virtual object is not yet in the scene, add it.
         if virtualObject.parent == nil {
+            let scaleFactor: Float = 0.01
+            virtualObject.scale = SCNVector3(scaleFactor, scaleFactor, scaleFactor)
+             let yOffset = abs(virtualObject.boundingBox.min.y*scaleFactor) // Calculating the y-offset of your model based on its bounds
+            virtualObject.position.y = yOffset
             self.sceneView.scene.rootNode.addChildNode(virtualObject)
             virtualObject.shouldUpdateAnchor = true
         }

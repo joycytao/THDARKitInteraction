@@ -344,6 +344,8 @@ class FocusSquare: SCNNode {
                 segment.runAction(.sequence([waitAction, flashSquareAction]))
             }
          }
+        let material = SCNMaterial.material(withDiffuse: UIImage(named:"AR-Place-Arrow"))
+        fillPlane.geometry?.materials = [material]
     }
     
     // MARK: Convenience Methods
